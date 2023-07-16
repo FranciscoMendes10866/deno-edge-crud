@@ -1,0 +1,33 @@
+@layout('layouts/main')
+@set('title', 'Book List')
+
+@section('body')
+<section>
+  @component('components/header', {
+    heading: 'Book List'
+  })
+    @slot('children')
+      <a href="/book">Add Book</a>
+    @end
+  @end
+
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Availability</th>
+    </tr>
+    @each(book in books)
+    <tr>
+      <td>
+        <a href="/book/{{ book.id }}">{{ book.id }}&nbsp;↩</a>
+      </td>
+      <td>{{ book.title }}</td>
+      <td>{{ book.description }}</td>
+      <td>{{ book.status }}</td>
+    </tr>
+    @end
+  </table>
+</section>
+@end

@@ -1,0 +1,18 @@
+@layout('layouts/main')
+@set('title', 'Book Details')
+
+@section('body')
+<section>
+  @component('components/header', {
+    heading: 'Book Details'
+  })
+    @slot('children')
+      <a href="/">Go Back</a>
+    @end
+  @end
+
+  @include('partials/updateForm')
+  <hr>
+  @include('partials/deleteForm')
+</section>
+@end

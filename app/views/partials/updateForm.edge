@@ -1,0 +1,28 @@
+<form action="/book/{{ book.id }}" method="POST">
+    <input type="hidden" name="_method" value="put" />
+
+    <div>
+      <label for="title">Title:</label>
+      <input id="title" name="title" type="text" value="{{ book.title }}" />
+    </div>
+  
+    <div>
+      <label for="description">Description:</label>
+      <input id="description" name="description" type="text" value="{{ book.description }}" />
+    </div>
+  
+    <div>
+      <label for="status">Status:</label>
+      <select name="status" id="status">
+        <option value="Available" {{ book.status === "Available" && "selected"}}>Available</option>
+        <option value="InProcess" {{ book.status === "InProcess" && "selected"}}>In Process</option>
+        <option value="NotAvailable" {{ book.status === "NotAvailable" && "selected"}}>Not Available</option>
+        <option value="Damaged" {{ book.status === "Damaged" && "selected"}}>Damaged</option>
+        <option value="Missing" {{ book.status === "Missing" && "selected"}}>Missing</option>
+      </select>
+    </div>
+  
+    <div>
+      <button type="submit">Update</button>
+    </div>
+</form>

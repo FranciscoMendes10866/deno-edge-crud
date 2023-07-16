@@ -1,0 +1,41 @@
+@layout('layouts/main')
+@set('title', 'Create Book')
+
+@section('body')
+<section>
+  @component('components/header', {
+    heading: 'Create Book'
+  })
+    @slot('children')
+      <a href="/">Go Back</a>
+    @end
+  @end
+
+  <form action="/book/create" method="POST">
+    <div>
+      <label for="title">Title:</label>
+      <input id="title" name="title" type="text" value="" />
+    </div>
+  
+    <div>
+      <label for="description">Description:</label>
+      <input id="description" name="description" type="text" value="" />
+    </div>
+  
+    <div>
+      <label for="status">Status:</label>
+      <select name="status" id="status">
+        <option value="Available">Available</option>
+        <option value="InProcess" selected>InProcess</option>
+        <option value="NotAvailable">NotAvailable</option>
+        <option value="Damaged">Damaged</option>
+        <option value="Missing">Missing</option>
+      </select>
+    </div>
+  
+    <div>
+      <button type="submit">Create</button>
+    </div>
+  </form>
+</section>
+@end
